@@ -21,7 +21,8 @@ export class OrderListPage implements OnInit {
 
   searchTerm: string = '';
   hasMore = true;
-  expandedOrders = new Set<number>();
+  //expandedOrders = new Set<number>();
+  expandedOrderId: number | null = null;
 
   constructor(
     private authService: AuthService, 
@@ -118,15 +119,38 @@ export class OrderListPage implements OnInit {
     return order.id;
   }
 
+  // toggleExpand(orderId: number) {
+  //   if (this.expandedOrders.has(orderId)) {
+  //     this.expandedOrders.delete(orderId);
+  //   } else {
+  //     this.expandedOrders.add(orderId);
+  //   }
+  // }
+
+  // isExpanded(orderId: number): boolean {
+  //   return this.expandedOrders.has(orderId);
+  // }
+
   toggleExpand(orderId: number) {
-    if (this.expandedOrders.has(orderId)) {
-      this.expandedOrders.delete(orderId);
-    } else {
-      this.expandedOrders.add(orderId);
-    }
+    this.expandedOrderId =
+      this.expandedOrderId === orderId ? null : orderId;
   }
 
   isExpanded(orderId: number): boolean {
-    return this.expandedOrders.has(orderId);
+    return this.expandedOrderId === orderId;
+  }
+
+  // Order Filtering Statuses
+  orderStatuses = [
+    { label: 'All', value: 'all' },
+    { label: 'Completed', value: 'completed' },
+    { label: 'Processing', value: 'processing' },
+    { label: 'Pending', value: 'pending' }
+  ];
+
+  selectedStatus = 'all';
+
+  selectStatus(status: string) {
+    this.selectedStatus = status;
   }
 }
