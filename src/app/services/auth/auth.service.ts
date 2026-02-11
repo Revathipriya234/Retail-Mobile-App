@@ -15,6 +15,7 @@ export class AuthService {
     private assetsService: AssetsService,
     private apiConfig: ApiConfigService
   ) {
+    this.wpBase = localStorage.getItem('wp_base_url');
     this.loadUserFromStorage();
   }
 

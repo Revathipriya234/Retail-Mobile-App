@@ -15,7 +15,7 @@
       </ion-button>
     </ion-buttons>
   </ion-toolbar> 
-
+ 
   <!-- Search -->
   <div class="search-wrapper">
     <ion-icon name="search"></ion-icon>
@@ -44,7 +44,19 @@
     <div
       class="customer-card"
       *ngFor="let user of users; let i = index"
+      [ngClass]="'role-color-' + (i % 5)"
     >
+
+    <!-- TOP ROW (Role only) -->
+    <div class="top-row" *ngIf="userRole === 'employee'">
+      <div class="role-badge">
+        • {{ getRoleLabel(user?.roles) }}
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT ROW -->
+    <div class="content-row">
+    
       <!-- Avatar -->
       <div
         class="avatar"
@@ -66,11 +78,11 @@
           Login PIN:
           <strong> {{ user.meta?.emp_login_pin }}</strong>
         </div>
-        <div class="subtitle" *ngIf="userRole === 'employee'">
-          Role:
+        <!-- <div class="subtitle" *ngIf="userRole === 'employee'">
+          Role: -->
           <!-- roles:["manager"] -->
-          <strong> {{ getRoleLabel(user?.roles) }}</strong>
-        </div>
+          <!-- <strong> {{ getRoleLabel(user?.roles) }}</strong>
+        </div> -->
       </div>
 
       <!-- Actions (only for employee screen) -->
@@ -84,6 +96,7 @@
           color="danger"
           (click)="confirmDeleteUser(user)"
         ></ion-icon>
+      </div>
       </div>
     </div>
   </div>
