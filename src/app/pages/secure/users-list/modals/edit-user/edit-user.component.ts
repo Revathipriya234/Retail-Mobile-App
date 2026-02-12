@@ -175,33 +175,33 @@ import { Router } from '@angular/router';
   }
 
 
-  /* Header container */
+  /* Header Block */
   .custom-header {
-    background: #28476a;
-
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-
-    overflow: hidden;   /* important */
+    background: #2f4157;   /* Same color as screenshot */
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    overflow: hidden;
   }
 
   /* Toolbar */
   .custom-header ion-toolbar {
-    --background: transparent;  /* remove double layer */
+    --background: transparent;
     --color: #ffffff;
-    --min-height: 90px;
+    --min-height: 110px;   /* Increase block height */
+    padding-top: 20px;
   }
 
   /* Title */
   .custom-header ion-title {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 500;
   }
 
-  /* Back button */
+  /* Back Button */
   .custom-header ion-button {
     --color: #ffffff;
   }
+
 
 
   /* Page background */
@@ -241,7 +241,7 @@ import { Router } from '@angular/router';
 
   /* Save button */
   .save-btn {
-    --background: #28476a;
+    --background: #2f4157;
     margin-top: 20px;
   }
 

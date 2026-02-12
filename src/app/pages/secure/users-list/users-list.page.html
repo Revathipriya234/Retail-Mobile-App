@@ -15,7 +15,7 @@
       </ion-button>
     </ion-buttons>
   </ion-toolbar> 
- 
+  
   <!-- Search -->
   <div class="search-wrapper">
     <ion-icon name="search"></ion-icon>
@@ -74,29 +74,28 @@
           Redeem Points:
           <strong>{{ user.meta?.redeem_points || 0 }} Pts</strong>
         </div>
-        <div class="subtitle" *ngIf="userRole === 'employee'">
-          Login PIN:
-          <strong> {{ user.meta?.emp_login_pin }}</strong>
-        </div>
-        <!-- <div class="subtitle" *ngIf="userRole === 'employee'">
-          Role: -->
-          <!-- roles:["manager"] -->
-          <!-- <strong> {{ getRoleLabel(user?.roles) }}</strong>
-        </div> -->
-      </div>
+        <div class="subtitle-row" *ngIf="userRole === 'employee'">
 
-      <!-- Actions (only for employee screen) -->
-      <div class="actions" *ngIf="userRole === 'employee'">
-        <ion-icon
-          name="create-outline"
-          (click)="openEditUserModal(user)"
-        ></ion-icon>
-        <ion-icon
-          name="trash-outline"
-          color="danger"
-          (click)="confirmDeleteUser(user)"
-        ></ion-icon>
-      </div>
+          <div class="pin-text">
+            Login PIN:
+            <strong>{{ user.meta?.emp_login_pin }}</strong>
+          </div>
+
+          <div class="actions">
+            <ion-icon
+              name="create-outline"
+              (click)="openEditUserModal(user)">
+            </ion-icon>
+
+            <ion-icon
+              name="trash-outline"
+              color="danger"
+              (click)="confirmDeleteUser(user)">
+            </ion-icon>
+          </div>
+        </div>
+        </div>
+
       </div>
     </div>
   </div>
